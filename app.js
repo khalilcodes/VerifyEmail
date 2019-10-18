@@ -27,9 +27,9 @@ let transporter = nodemailer.createTransport({
 
 app.post("/", (req,res)=> {
 
-    req.checkBody("email", "email required").notEmpty;
-    req.checkBody("password", "password required").notEmpty;
-    req.checkBody("email", "invalid email").isEmail;
+    req.checkBody("email", "email required").notEmpty();
+    req.checkBody("password", "password required").notEmpty();
+    req.checkBody("email", "invalid email").isEmail();
 
     if (errors) {
         res.json(errors);
