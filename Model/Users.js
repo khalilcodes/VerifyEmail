@@ -3,17 +3,26 @@ const Schema = mongoose.Schema
 
 const usersSchema = new Schema({
     name : {
-        type : String
+        type : String,
+        required : true,
+        maxlength : 50
     },
     email : {
-        type : String
+        type : String,
+        required : true,
+        trim : true
     },
     pwd : {
-        type : String
+        type : String,
+        required : true,
     },
-    verified : {
-        type : false
+    active : {
+        type : Boolean,
+        default : false
+    },
+    token : {
+        type : String
     }
 })
 
-module.exports = mongoose.model("User", usersSchema, "emailVerification" );
+module.exports = mongoose.model("User", usersSchema, "emailVerifications" );

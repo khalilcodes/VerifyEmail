@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/kb', {useNewUrlParser: true, useUnifiedTopology: true}, (err) => {
-    if (err) console.log("something wrong with db");
-    console.log("Successfully connected to database");
+mongoose.connect('mongodb+srv://khalil:khalil@kb-jgdlm.gcp.mongodb.net/emailVerify?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true}, (err) => {
+    if (err) {
+        throw err;
+    } else {
+        console.log("Successfully connected to database");
+    }
 });
