@@ -15,15 +15,15 @@ app.use(bodyParser.json())
 
 app.use(express.static("Views"));
 
- let transporter = nodemailer.createTransport({
-        host: 'mail.khalil.codes',
-        port: 465,
-        secure: true,
-        auth: {
-            user: "me@khalil.codes",
-            pass: "khalilali123"
-        }
-    });
+let transporter = nodemailer.createTransport({
+    host: 'mail.khalil.codes',
+    port: 465,
+    secure: true,
+    auth: {
+        user: "me@khalil.codes",
+        pass: "khalilali123"
+    }
+});
 
 app.post("/", (req,res)=> {
 
@@ -45,7 +45,7 @@ app.post("/", (req,res)=> {
         to: `${req.body.email}`,
         subject: 'Verify your email please',
         text: 'Please verify your email',
-        html: `<a href="khalill.herokuapp.com/verify/${user.token}>Click here to verify your email</a>`
+        html: `<a href="https://khalill.herokuapp.com/verify/${user.token}>Click here to verify your email</a>`
     }).then((info)=>{
         console.log('Message sent: %s', info.messageId)
     }).catch(err => {console.log(err)});
