@@ -11,9 +11,9 @@ const port = process.env.PORT || 1234;
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-app.use("/signup", express.static("Views"));
+app.use("/", express.static("Views"));
 
-app.post("/signup", (req,res)=> {
+app.post("/", (req,res)=> {
     let transporter = nodemailer.createTransport({
         host: 'mail.khalil.codes',
         port: 465,
