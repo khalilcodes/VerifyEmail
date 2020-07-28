@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express');
 const app = express();
 const dbconnect = require('./dbconnect');
@@ -21,7 +22,7 @@ let transporter = nodemailer.createTransport({
     secure: true,
     auth: {
         user: "me@khalil.codes",
-        pass: "khalilali123"
+        pass: `${process.env.EMAIL_PASS}`
     }
 });
 
